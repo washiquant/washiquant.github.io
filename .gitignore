@@ -1,0 +1,30 @@
+# Dependências de Node
+node_modules/
+.pnp
+.pnp.js
+
+# Build / Distribuição
+dist/
+dist-zip/
+build/
+
+# Ambientes Virtuais do Python
+.venv/
+venv/
+ENV/
+
+# Arquivos da IDE (JetBrains / PyCharm / WebStorm)
+.idea/
+
+# Arquivos da IDE (VS Code)
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs e variáveis de ambiente
+*.log
+.env
+.env.local
