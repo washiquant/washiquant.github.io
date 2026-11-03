@@ -1,1156 +1,980 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 
-    <!-- SEO & Open Graph Meta Tags -->
-    <title>Washington Willian | Software Developer — Python &amp; C# (.NET)</title>
-    <meta
-      name="description"
-      content="Portfólio de Washington Willian — Desenvolvedor Back-End & Estudante de ADS focado em construir aplicações robustas, automações e soluções orientadas a dados em Python e C# (.NET)."
-    />
-    <meta name="author" content="Washington Willian Roncador Moreira" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://washiquant.github.io/" />
-    <meta property="og:title" content="Washington Willian | Software Developer — Python & C# (.NET)" />
-    <meta
-      property="og:description"
-      content="Desenvolvedor Back-End focado em aplicações em camadas, automações, bancos de dados relacionais e soluções orientadas a dados em Python e C# (.NET)."
-    />
-    <meta property="og:image" content="https://washiquant.github.io/profile.jpg" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 
-    <!-- Google Fonts: Poppins & Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+  <!-- SEO & Open Graph Meta Tags -->
+  <title>Washington Willian | Software Developer — C# (.NET) &amp; Python</title>
+  <meta name="description"
+    content="Portfólio de Washington Willian — Desenvolvedor Back-End & Estudante de ADS focado em construir aplicações robustas, automações e soluções orientadas a dados em Python e C# (.NET)." />
+  <meta name="author" content="Washington Willian Roncador Moreira" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://washiquant.github.io/" />
+  <meta property="og:title" content="Washington Willian | Software Developer — Python & C# (.NET)" />
+  <meta property="og:description"
+    content="Desenvolvedor Back-End focado em aplicações em camadas, automações, bancos de dados relacionais e soluções orientadas a dados em Python e C# (.NET)." />
+  <meta property="og:image" content="https://washiquant.github.io/profile.jpg" />
 
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              canvas: '#151312',
-              surface: '#1C1A19',
-              inputBg: '#282627',
-              mutedHeading: '#353334',
-              bodyText: '#998F8F',
-              brandOrange: '#F46C38',
-              brandLime: '#C5FF41',
-            },
-            fontFamily: {
-              poppins: ['Poppins', 'Inter', 'sans-serif'],
-              inter: ['Inter', 'sans-serif'],
-            },
+  <!-- Google Fonts: Poppins & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#151312',
+            surface: '#1C1A19',
+            inputBg: '#282627',
+            mutedHeading: '#353334',
+            bodyText: '#998F8F',
+            brandOrange: '#F46C38',
+            brandLime: '#C5FF41',
+          },
+          fontFamily: {
+            poppins: ['Poppins', 'Inter', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
           },
         },
-      };
-    </script>
+      },
+    };
+  </script>
 
-    <!-- Lucide Icons via CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-    <style>
-      body {
-        background-color: #151312;
-        color: #ffffff;
-        font-family: 'Poppins', 'Inter', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        overflow-x: hidden;
+  <style>
+    body {
+      background-color: #151312;
+      color: #ffffff;
+      font-family: 'Poppins', 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background-color: #F46C38;
+      color: #ffffff;
+    }
+
+    /* Giant Section Title Typography (Sawad Display Standard) */
+    .section-giant-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+
+    /* Smooth Scroll Reveal (IntersectionObserver) */
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: var(--delay, 0ms);
+    }
+
+    .reveal-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating Nav Tooltip */
+    .nav-icon-link {
+      position: relative;
+    }
+
+    .nav-tooltip {
+      position: absolute;
+      bottom: -34px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-4px);
+      background-color: #282627;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .nav-icon-link:hover .nav-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-icon-link.active {
+      color: #F46C38;
+      background-color: rgba(244, 108, 56, 0.12);
+    }
+
+    /* Custom Select Arrow */
+    .custom-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23998F8F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1.1rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
       }
 
-      ::selection {
-        background-color: #F46C38;
-        color: #ffffff;
-      }
-
-      /* Giant Section Title Typography (Sawad Display Standard) */
-      .section-giant-title {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 800;
-        text-transform: uppercase;
-        line-height: 0.95;
-        letter-spacing: -0.03em;
-      }
-
-      /* Smooth Scroll Reveal (IntersectionObserver) */
       .reveal-up {
-        opacity: 0;
-        transform: translateY(28px);
-        transition:
-          opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-          transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-        transition-delay: var(--delay, 0ms);
-      }
-
-      .reveal-up.is-visible {
         opacity: 1;
-        transform: translateY(0);
+        transform: none;
+        transition: none;
       }
+    }
+  </style>
+</head>
 
-      /* Floating Nav Tooltip */
-      .nav-icon-link {
-        position: relative;
-      }
-
-      .nav-tooltip {
-        position: absolute;
-        bottom: -34px;
-        left: 50%;
-        transform: translateX(-50%) translateY(-4px);
-        background-color: #282627;
-        color: #ffffff;
-        font-size: 11px;
-        font-weight: 600;
-        padding: 3px 9px;
-        border-radius: 6px;
-        white-space: nowrap;
-        opacity: 0;
-        pointer-events: none;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
-      }
-
-      .nav-icon-link:hover .nav-tooltip {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-      }
-
-      .nav-icon-link.active {
-        color: #F46C38;
-        background-color: rgba(244, 108, 56, 0.12);
-      }
-
-      /* Custom Select Arrow */
-      .custom-select {
-        appearance: none;
-        -webkit-appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23998F8F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 1rem center;
-        background-size: 1.1rem;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-        .reveal-up {
-          opacity: 1;
-          transform: none;
-          transition: none;
-        }
-      }
-    </style>
-  </head>
-
-  <body class="bg-[#151312] text-white min-h-screen">
-    <!-- ======================================================================
+<body class="bg-[#151312] text-white min-h-screen">
+  <!-- ======================================================================
          TOP FLOATING NAVIGATION BAR (5 MINIMALIST ICONS)
          ====================================================================== -->
-    <header class="fixed top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-      <nav
-        aria-label="Navegação Principal"
-        class="pointer-events-auto bg-[#1C1A19]/90 backdrop-blur-md border border-white/[0.07] rounded-2xl px-5 sm:px-6 py-2.5 shadow-2xl flex items-center gap-2 sm:gap-4"
-      >
-        <a
-          href="#home"
-          data-nav-target="home"
-          aria-label="Home"
-          class="nav-icon-link active w-10 h-10 rounded-xl flex items-center justify-center text-white/80 hover:text-white hover:bg-white/5 transition-all"
-        >
-          <i data-lucide="home" class="w-[19px] h-[19px]"></i>
-          <span class="nav-tooltip">Home</span>
-        </a>
+  <header class="fixed top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+    <nav aria-label="Navegação Principal"
+      class="pointer-events-auto bg-[#1C1A19]/90 backdrop-blur-md border border-white/[0.07] rounded-2xl px-5 sm:px-6 py-2.5 shadow-2xl flex items-center gap-2 sm:gap-4">
+      <a href="#home" data-nav-target="home" aria-label="Home"
+        class="nav-icon-link active w-10 h-10 rounded-xl flex items-center justify-center text-white/80 hover:text-white hover:bg-white/5 transition-all">
+        <i data-lucide="home" class="w-[19px] h-[19px]"></i>
+        <span class="nav-tooltip">Home</span>
+      </a>
 
-        <a
-          href="#projects"
-          data-nav-target="projects"
-          aria-label="Projetos"
-          class="nav-icon-link w-10 h-10 rounded-xl flex items-center justify-center text-white/80 hover:text-white hover:bg-white/5 transition-all"
-        >
-          <i data-lucide="folder" class="w-[19px] h-[19px]"></i>
-          <span class="nav-tooltip">Projetos</span>
-        </a>
+      <a href="#projects" data-nav-target="projects" aria-label="Projetos"
+        class="nav-icon-link w-10 h-10 rounded-xl flex items-center justify-center text-white/80 hover:text-white hover:bg-white/5 transition-all">
+        <i data-lucide="folder" class="w-[19px] h-[19px]"></i>
+        <span class="nav-tooltip">Projetos</span>
+      </a>
 
-        <a
-          href="#experience"
-          data-nav-target="experience"
-          aria-label="Experiência"
-          class="nav-icon-link w-10 h-10 rounded-xl flex items-center justify-center text-white/80 hover:text-white hover:bg-white/5 transition-all"
-        >
-          <i data-lucide="briefcase" class="w-[19px] h-[19px]"></i>
-          <span class="nav-tooltip">Experiência</span>
-        </a>
+      <a href="#experience" data-nav-target="experience" aria-label="Experiência"
+        class="nav-icon-link w-10 h-10 rounded-xl flex items-center justify-center text-white/80 hover:text-white hover:bg-white/5 transition-all">
+        <i data-lucide="briefcase" class="w-[19px] h-[19px]"></i>
+        <span class="nav-tooltip">Experiência</span>
+      </a>
 
-        <a
-          href="#tools"
-          data-nav-target="tools"
-          aria-label="Ferramentas"
-          class="nav-icon-link w-10 h-10 rounded-xl flex items-center justify-center text-white/80 hover:text-white hover:bg-white/5 transition-all"
-        >
-          <i data-lucide="wrench" class="w-[19px] h-[19px]"></i>
-          <span class="nav-tooltip">Ferramentas</span>
-        </a>
+      <a href="#tools" data-nav-target="tools" aria-label="Ferramentas"
+        class="nav-icon-link w-10 h-10 rounded-xl flex items-center justify-center text-white/80 hover:text-white hover:bg-white/5 transition-all">
+        <i data-lucide="wrench" class="w-[19px] h-[19px]"></i>
+        <span class="nav-tooltip">Ferramentas</span>
+      </a>
 
-        <a
-          href="#contact"
-          data-nav-target="contact"
-          aria-label="Contato"
-          class="nav-icon-link w-10 h-10 rounded-xl flex items-center justify-center text-white/80 hover:text-white hover:bg-white/5 transition-all"
-        >
-          <i data-lucide="mail" class="w-[19px] h-[19px]"></i>
-          <span class="nav-tooltip">Contato</span>
-        </a>
-      </nav>
-    </header>
+      <a href="#contact" data-nav-target="contact" aria-label="Contato"
+        class="nav-icon-link w-10 h-10 rounded-xl flex items-center justify-center text-white/80 hover:text-white hover:bg-white/5 transition-all">
+        <i data-lucide="mail" class="w-[19px] h-[19px]"></i>
+        <span class="nav-tooltip">Contato</span>
+      </a>
+    </nav>
+  </header>
 
-    <!-- ======================================================================
+  <!-- ======================================================================
          MAIN 2-COLUMN ASYMMETRIC CONTAINER
          ====================================================================== -->
-    <div class="max-w-6xl mx-auto px-4 md:px-8 pt-28 pb-20">
-      <div class="flex flex-col lg:flex-row items-start gap-12 xl:gap-16">
-        <!-- ==================================================================
+  <div class="max-w-6xl mx-auto px-4 md:px-8 pt-28 pb-20">
+    <div class="flex flex-col lg:flex-row items-start gap-12 xl:gap-16">
+      <!-- ==================================================================
              LEFT COLUMN: STICKY WHITE PROFILE CARD (~340px)
              ================================================================== -->
-        <aside class="w-full lg:w-[340px] shrink-0 lg:sticky lg:top-8">
-          <div class="bg-white text-[#151312] rounded-3xl p-7 shadow-2xl relative overflow-hidden reveal-up">
-            <!-- Top-Left Decorative Dashed Orange Arc (Sawad Signature Detail) -->
-            <svg
-              class="absolute -top-2 -left-2 w-36 h-36 pointer-events-none z-20"
-              viewBox="0 0 140 140"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M 118 4 A 114 114 0 0 1 4 118"
-                stroke="#F46C38"
-                stroke-width="3"
-                stroke-dasharray="7 7"
-                stroke-linecap="round"
-              />
+      <aside class="w-full lg:w-[340px] shrink-0 lg:sticky lg:top-8">
+        <div class="bg-white text-[#151312] rounded-3xl p-7 shadow-2xl relative overflow-hidden reveal-up">
+          <!-- Top-Left Decorative Dashed Orange Arc (Sawad Signature Detail) -->
+          <svg class="absolute -top-2 -left-2 w-36 h-36 pointer-events-none z-20" viewBox="0 0 140 140" fill="none"
+            aria-hidden="true">
+            <path d="M 118 4 A 114 114 0 0 1 4 118" stroke="#F46C38" stroke-width="3" stroke-dasharray="7 7"
+              stroke-linecap="round" />
+          </svg>
+
+          <!-- Profile Photo Square Container -->
+          <div class="rounded-2xl overflow-hidden aspect-square mb-5 bg-[#151312] relative z-10 shadow-inner">
+            <img src="./assets/perfil.jpg?v=2" alt="Foto de perfil de Washington Willian"
+              class="w-full h-full object-cover object-[center_28%] transition-transform duration-500 hover:scale-105"
+              onerror="this.onerror=null; this.src='./profile.jpg?v=2';" />
+          </div>
+
+          <!-- Full Display Name -->
+          <h1 class="text-2xl sm:text-[26px] font-extrabold text-[#151312] text-center tracking-tight leading-tight">
+            Washington Willian
+          </h1>
+
+          <!-- Decorative Dashed Orange Curve Connecting Left Edge to Central Orange Terminal Badge -->
+          <div class="relative flex items-center justify-center my-4">
+            <svg class="absolute -left-7 top-1/2 -translate-y-1/2 w-[56%] h-16 pointer-events-none" viewBox="0 0 190 64"
+              fill="none" aria-hidden="true">
+              <path d="M 0 58 C 46 58, 74 32, 172 32" stroke="#F46C38" stroke-width="2.6" stroke-dasharray="6 6"
+                stroke-linecap="round" />
             </svg>
 
-            <!-- Profile Photo Square Container (Prepared for assets/perfil.jpg + Stylized Fallback) -->
-            <div class="rounded-2xl overflow-hidden aspect-square mb-5 bg-neutral-900 relative z-10 shadow-inner">
-              <!-- Stylized Fallback Placeholder (Visible if image fails or while loading) -->
-              <div
-                id="profile-placeholder"
-                class="absolute inset-0 bg-gradient-to-br from-[#D94A1E] via-[#B23410] to-[#151312] flex flex-col items-center justify-center text-white p-6 text-center select-none"
-              >
-                <div class="w-20 h-20 rounded-2xl bg-black/30 backdrop-blur-sm border border-white/20 flex items-center justify-center mb-3 shadow-lg">
-                  <span class="text-3xl font-extrabold tracking-tight">WW</span>
-                </div>
-                <span class="text-xs font-semibold uppercase tracking-widest text-white/80">
-                  assets/perfil.jpg
-                </span>
-              </div>
-
-              <!-- Actual Profile Image -->
-              <img
-                src="assets/perfil.jpg"
-                alt="Foto de perfil de Washington Willian"
-                class="relative z-10 w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
-                onload="document.getElementById('profile-placeholder').style.display='none';"
-                onerror="this.style.display='none';"
-              />
-            </div>
-
-            <!-- Full Display Name -->
-            <h1 class="text-2xl sm:text-[26px] font-extrabold text-[#151312] text-center tracking-tight leading-tight">
-              Washington Willian
-            </h1>
-
-            <!-- Decorative Dashed Orange Curve Connecting Left Edge to Central Orange Terminal Badge -->
-            <div class="relative flex items-center justify-center my-4">
-              <svg
-                class="absolute -left-7 top-1/2 -translate-y-1/2 w-[56%] h-16 pointer-events-none"
-                viewBox="0 0 190 64"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M 0 58 C 46 58, 74 32, 172 32"
-                  stroke="#F46C38"
-                  stroke-width="2.6"
-                  stroke-dasharray="6 6"
-                  stroke-linecap="round"
-                />
-              </svg>
-
-              <div
-                class="relative z-10 w-10 h-10 rounded-full bg-[#F46C38] text-white flex items-center justify-center shadow-md shadow-[#F46C38]/35"
-                aria-hidden="true"
-              >
-                <i data-lucide="terminal" class="w-5 h-5 stroke-[2.4]"></i>
-              </div>
-            </div>
-
-            <!-- Short Bio -->
-            <p class="text-sm text-neutral-600 font-medium text-center leading-relaxed px-1">
-              Desenvolvedor Back-End &amp; Estudante de ADS focado em construir aplicações robustas, automações e soluções orientadas a dados em Python e C#.
-            </p>
-
-            <!-- Social Links Footer (4 Orange Icons) -->
-            <div class="flex items-center justify-center gap-3 mt-6 pt-2">
-              <a
-                href="https://github.com/washiquant"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                title="GitHub (@washiquant)"
-                class="w-10 h-10 rounded-xl flex items-center justify-center text-[#F46C38] hover:bg-[#F46C38] hover:text-white transition-all duration-200"
-              >
-                <i data-lucide="github" class="w-[19px] h-[19px]"></i>
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/washington-willian-roncador-moreira-04a0662b9/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                title="LinkedIn"
-                class="w-10 h-10 rounded-xl flex items-center justify-center text-[#F46C38] hover:bg-[#F46C38] hover:text-white transition-all duration-200"
-              >
-                <i data-lucide="linkedin" class="w-[19px] h-[19px]"></i>
-              </a>
-
-              <a
-                href="https://washiquant.github.io"
-                aria-label="Portfólio"
-                title="Portfólio (washiquant.github.io)"
-                class="w-10 h-10 rounded-xl flex items-center justify-center text-[#F46C38] hover:bg-[#F46C38] hover:text-white transition-all duration-200"
-              >
-                <i data-lucide="globe" class="w-[19px] h-[19px]"></i>
-              </a>
-
-              <a
-                href="mailto:washiwm1@gmail.com"
-                aria-label="E-mail"
-                title="Enviar E-mail (washiwm1@gmail.com)"
-                class="w-10 h-10 rounded-xl flex items-center justify-center text-[#F46C38] hover:bg-[#F46C38] hover:text-white transition-all duration-200"
-              >
-                <i data-lucide="mail" class="w-[19px] h-[19px]"></i>
-              </a>
+            <div
+              class="relative z-10 w-10 h-10 rounded-full bg-[#F46C38] text-white flex items-center justify-center shadow-md shadow-[#F46C38]/35"
+              aria-hidden="true">
+              <i data-lucide="terminal" class="w-5 h-5 stroke-[2.4]"></i>
             </div>
           </div>
-        </aside>
 
-        <!-- ==================================================================
+          <!-- Short Bio -->
+          <p class="text-sm text-neutral-600 font-medium text-center leading-relaxed px-1">
+            Desenvolvedor Back-End &amp; Estudante de ADS focado em construir aplicações robustas, automações e soluções
+            orientadas a dados em Python e C#.
+          </p>
+
+          <!-- Social Links Footer (4 Orange Icons) -->
+          <div class="flex items-center justify-center gap-3 mt-6 pt-2">
+            <a href="https://github.com/washiquant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+              title="GitHub (@washiquant)"
+              class="w-10 h-10 rounded-xl flex items-center justify-center text-[#F46C38] hover:bg-[#F46C38] hover:text-white transition-all duration-200">
+              <i data-lucide="github" class="w-[19px] h-[19px]"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/washington-willian-roncador-moreira-04a0662b9/" target="_blank"
+              rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"
+              class="w-10 h-10 rounded-xl flex items-center justify-center text-[#F46C38] hover:bg-[#F46C38] hover:text-white transition-all duration-200">
+              <i data-lucide="linkedin" class="w-[19px] h-[19px]"></i>
+            </a>
+
+            <a href="https://washiquant.github.io" aria-label="Portfólio" title="Portfólio (washiquant.github.io)"
+              class="w-10 h-10 rounded-xl flex items-center justify-center text-[#F46C38] hover:bg-[#F46C38] hover:text-white transition-all duration-200">
+              <i data-lucide="globe" class="w-[19px] h-[19px]"></i>
+            </a>
+
+            <a href="mailto:washiwm1@gmail.com" aria-label="E-mail" title="Enviar E-mail (washiwm1@gmail.com)"
+              class="w-10 h-10 rounded-xl flex items-center justify-center text-[#F46C38] hover:bg-[#F46C38] hover:text-white transition-all duration-200">
+              <i data-lucide="mail" class="w-[19px] h-[19px]"></i>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ==================================================================
              RIGHT COLUMN: 6 SCROLLABLE SECTIONS
              ================================================================== -->
-        <main class="flex-1 min-w-0 w-full space-y-28">
-          <!-- ================================================================
+      <main class="flex-1 min-w-0 w-full space-y-28">
+        <!-- ================================================================
                SEÇÃO 1: HERO (APRESENTAÇÃO)
                ================================================================ -->
-          <section id="home" class="scroll-mt-28">
-            <div class="reveal-up">
-              <h2 class="section-giant-title text-5xl sm:text-7xl xl:text-[84px]">
-                <span class="block text-white">SOFTWARE</span>
-                <span class="block text-[#353334]">DEVELOPER</span>
-              </h2>
+        <section id="home" class="scroll-mt-28">
+          <div class="reveal-up">
+            <h2 class="section-giant-title text-5xl sm:text-7xl xl:text-[84px]">
+              <span class="block text-white">SOFTWARE</span>
+              <span class="block text-[#353334]">DEVELOPER</span>
+            </h2>
 
-              <p class="font-inter text-[#998F8F] text-base sm:text-[17px] leading-relaxed max-w-2xl mt-5">
-                Apaixonado por transformar problemas reais de logística, operações e mercado financeiro em software eficiente. Especialista em arquitetura Back-End com Python e C# (.NET), bancos de dados relacionais e automação de processos.
-              </p>
+            <p class="font-inter text-[#998F8F] text-base sm:text-[17px] leading-relaxed max-w-2xl mt-5">
+              Apaixonado por transformar problemas reais de logística, operações e mercado financeiro em software
+              eficiente. Especialista em arquitetura Back-End com Python e C# (.NET), bancos de dados relacionais e
+              automação de processos.
+            </p>
+          </div>
+
+          <!-- Metrics Row (3 Columns) -->
+          <div class="grid grid-cols-3 gap-4 sm:gap-8 mt-10 reveal-up" style="--delay: 90ms;">
+            <div>
+              <div class="text-3xl sm:text-5xl xl:text-[56px] font-bold text-white tracking-tight leading-none">
+                +160h
+              </div>
+              <div
+                class="font-inter text-[11px] sm:text-xs font-medium uppercase tracking-wider text-[#998F8F] mt-2.5 leading-snug">
+                FORMAÇÃO BACK-END<br class="hidden sm:inline" /> C# / .NET
+              </div>
             </div>
 
-            <!-- Metrics Row (3 Columns) -->
+            <div>
+              <div class="text-3xl sm:text-5xl xl:text-[56px] font-bold text-white tracking-tight leading-none">
+                +2
+              </div>
+              <div
+                class="font-inter text-[11px] sm:text-xs font-medium uppercase tracking-wider text-[#998F8F] mt-2.5 leading-snug">
+                SISTEMAS COMPLETOS<br class="hidden sm:inline" /> EM PRODUÇÃO
+              </div>
+            </div>
+
+            <div>
+              <div class="text-3xl sm:text-5xl xl:text-[56px] font-bold text-white tracking-tight leading-none">
+                2028
+              </div>
+              <div
+                class="font-inter text-[11px] sm:text-xs font-medium uppercase tracking-wider text-[#998F8F] mt-2.5 leading-snug">
+                GRADUAÇÃO ADS<br class="hidden sm:inline" /> (SÃO JUDAS)
+              </div>
+            </div>
+          </div>
+
+          <!-- 2 Vibrant Bento Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-11 reveal-up" style="--delay: 160ms;">
+            <!-- Card 1: Vibrant Orange (#F46C38) -->
             <div
-              class="grid grid-cols-3 gap-4 sm:gap-8 mt-10 reveal-up"
-              style="--delay: 90ms;"
-            >
-              <div>
-                <div class="text-3xl sm:text-5xl xl:text-[56px] font-bold text-white tracking-tight leading-none">
-                  +160h
-                </div>
-                <div class="font-inter text-[11px] sm:text-xs font-medium uppercase tracking-wider text-[#998F8F] mt-2.5 leading-snug">
-                  FORMAÇÃO BACK-END<br class="hidden sm:inline" /> C# / .NET
-                </div>
+              class="bg-[#F46C38] text-white rounded-2xl p-6 sm:p-7 relative overflow-hidden min-h-[210px] flex flex-col justify-between group shadow-xl shadow-[#F46C38]/10">
+              <!-- Subtle Decorative Wave Pattern (Sawad Accent Card Style) -->
+              <svg class="absolute -right-8 -top-8 w-52 h-52 opacity-20 pointer-events-none" viewBox="0 0 200 200"
+                fill="none" aria-hidden="true">
+                <circle cx="130" cy="70" r="55" stroke="white" stroke-width="2" />
+                <circle cx="130" cy="70" r="85" stroke="white" stroke-width="2" />
+                <circle cx="130" cy="70" r="115" stroke="white" stroke-width="2" />
+              </svg>
+
+              <div class="relative z-10">
+                <i data-lucide="layers" class="w-8 h-8 stroke-[1.9]"></i>
               </div>
 
-              <div>
-                <div class="text-3xl sm:text-5xl xl:text-[56px] font-bold text-white tracking-tight leading-none">
-                  +2
-                </div>
-                <div class="font-inter text-[11px] sm:text-xs font-medium uppercase tracking-wider text-[#998F8F] mt-2.5 leading-snug">
-                  SISTEMAS COMPLETOS<br class="hidden sm:inline" /> EM PRODUÇÃO
-                </div>
+              <div class="relative z-10 my-4 pr-10">
+                <h3 class="text-lg sm:text-[20px] font-bold uppercase leading-[1.22] tracking-tight">
+                  ARQUITETURA BACK-END, PYTHON, C# &amp; SQLITE
+                </h3>
               </div>
 
-              <div>
-                <div class="text-3xl sm:text-5xl xl:text-[56px] font-bold text-white tracking-tight leading-none">
-                  2028
-                </div>
-                <div class="font-inter text-[11px] sm:text-xs font-medium uppercase tracking-wider text-[#998F8F] mt-2.5 leading-snug">
-                  GRADUAÇÃO ADS<br class="hidden sm:inline" /> (SÃO JUDAS)
-                </div>
+              <div class="relative z-10 flex justify-end">
+                <a href="#projects" aria-label="Ir para Projetos Recentes"
+                  class="w-9 h-9 rounded-lg border border-white/45 flex items-center justify-center text-white hover:bg-white hover:text-[#F46C38] transition-all duration-200 group-hover:translate-x-0.5">
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
               </div>
             </div>
 
-            <!-- 2 Vibrant Bento Cards -->
+            <!-- Card 2: Neon Lime (#C5FF41) -->
             <div
-              class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-11 reveal-up"
-              style="--delay: 160ms;"
-            >
-              <!-- Card 1: Vibrant Orange (#F46C38) -->
-              <div class="bg-[#F46C38] text-white rounded-2xl p-6 sm:p-7 relative overflow-hidden min-h-[210px] flex flex-col justify-between group shadow-xl shadow-[#F46C38]/10">
-                <!-- Subtle Decorative Wave Pattern (Sawad Accent Card Style) -->
-                <svg
-                  class="absolute -right-8 -top-8 w-52 h-52 opacity-20 pointer-events-none"
-                  viewBox="0 0 200 200"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <circle cx="130" cy="70" r="55" stroke="white" stroke-width="2" />
-                  <circle cx="130" cy="70" r="85" stroke="white" stroke-width="2" />
-                  <circle cx="130" cy="70" r="115" stroke="white" stroke-width="2" />
-                </svg>
+              class="bg-[#C5FF41] text-[#151312] rounded-2xl p-6 sm:p-7 relative overflow-hidden min-h-[210px] flex flex-col justify-between group shadow-xl shadow-[#C5FF41]/5">
+              <!-- Subtle Decorative Geometric Zig-Zag Pattern -->
+              <svg class="absolute right-0 top-0 w-56 h-56 opacity-15 pointer-events-none" viewBox="0 0 220 220"
+                fill="none" aria-hidden="true">
+                <path d="M20 40 L90 40 L90 110 L160 110 L160 180 L220 180" stroke="#151312" stroke-width="2.5" />
+                <path d="M55 10 L125 10 L125 80 L195 80 L195 150" stroke="#151312" stroke-width="2.5" />
+              </svg>
 
-                <div class="relative z-10">
-                  <i data-lucide="layers" class="w-8 h-8 stroke-[1.9]"></i>
-                </div>
-
-                <div class="relative z-10 my-4 pr-10">
-                  <h3 class="text-lg sm:text-[20px] font-bold uppercase leading-[1.22] tracking-tight">
-                    ARQUITETURA BACK-END, PYTHON, C# &amp; SQLITE
-                  </h3>
-                </div>
-
-                <div class="relative z-10 flex justify-end">
-                  <a
-                    href="#projects"
-                    aria-label="Ir para Projetos Recentes"
-                    class="w-9 h-9 rounded-lg border border-white/45 flex items-center justify-center text-white hover:bg-white hover:text-[#F46C38] transition-all duration-200 group-hover:translate-x-0.5"
-                  >
-                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                  </a>
-                </div>
+              <div class="relative z-10">
+                <i data-lucide="code-2" class="w-8 h-8 stroke-[2]"></i>
               </div>
 
-              <!-- Card 2: Neon Lime (#C5FF41) -->
-              <div class="bg-[#C5FF41] text-[#151312] rounded-2xl p-6 sm:p-7 relative overflow-hidden min-h-[210px] flex flex-col justify-between group shadow-xl shadow-[#C5FF41]/5">
-                <!-- Subtle Decorative Geometric Zig-Zag Pattern -->
-                <svg
-                  class="absolute right-0 top-0 w-56 h-56 opacity-15 pointer-events-none"
-                  viewBox="0 0 220 220"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M20 40 L90 40 L90 110 L160 110 L160 180 L220 180"
-                    stroke="#151312"
-                    stroke-width="2.5"
-                  />
-                  <path
-                    d="M55 10 L125 10 L125 80 L195 80 L195 150"
-                    stroke="#151312"
-                    stroke-width="2.5"
-                  />
-                </svg>
+              <div class="relative z-10 my-4 pr-10">
+                <h3 class="text-lg sm:text-[20px] font-bold uppercase leading-[1.22] tracking-tight">
+                  FLET, DOCKER, AUTOMAÇÃO, APIS &amp; DATA SCIENCE
+                </h3>
+              </div>
 
-                <div class="relative z-10">
-                  <i data-lucide="code-2" class="w-8 h-8 stroke-[2]"></i>
-                </div>
-
-                <div class="relative z-10 my-4 pr-10">
-                  <h3 class="text-lg sm:text-[20px] font-bold uppercase leading-[1.22] tracking-tight">
-                    FLET, DOCKER, AUTOMAÇÃO, APIS &amp; DATA SCIENCE
-                  </h3>
-                </div>
-
-                <div class="relative z-10 flex justify-end">
-                  <a
-                    href="#tools"
-                    aria-label="Ir para Tech Stack"
-                    class="w-9 h-9 rounded-lg border border-[#151312]/35 flex items-center justify-center text-[#151312] hover:bg-[#151312] hover:text-[#C5FF41] transition-all duration-200 group-hover:translate-x-0.5"
-                  >
-                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                  </a>
-                </div>
+              <div class="relative z-10 flex justify-end">
+                <a href="#tools" aria-label="Ir para Tech Stack"
+                  class="w-9 h-9 rounded-lg border border-[#151312]/35 flex items-center justify-center text-[#151312] hover:bg-[#151312] hover:text-[#C5FF41] transition-all duration-200 group-hover:translate-x-0.5">
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <!-- ================================================================
+        <!-- ================================================================
                SEÇÃO 2: RECENT PROJECTS (PROJETOS)
                ================================================================ -->
-          <section id="projects" class="scroll-mt-28">
-            <div class="reveal-up">
-              <h2 class="section-giant-title text-5xl sm:text-7xl xl:text-[80px]">
-                <span class="block text-white">RECENT</span>
-                <span class="block text-[#353334]">PROJECTS</span>
-              </h2>
-            </div>
+        <section id="projects" class="scroll-mt-28">
+          <div class="reveal-up">
+            <h2 class="section-giant-title text-5xl sm:text-7xl xl:text-[80px]">
+              <span class="block text-white">RECENT</span>
+              <span class="block text-[#353334]">PROJECTS</span>
+            </h2>
+          </div>
 
-            <div class="mt-8 space-y-4">
-              <!-- Project 1: Controle de Entregas -->
-              <a
-                href="https://github.com/washiquant"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="reveal-up group flex flex-col sm:flex-row sm:items-center justify-between gap-5 p-4 sm:p-5 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative"
-              >
-                <div class="flex flex-col sm:flex-row sm:items-center gap-5 flex-1 min-w-0">
-                  <!-- Project Thumbnail -->
-                  <div class="w-full sm:w-36 h-28 rounded-xl overflow-hidden shrink-0 bg-[#1C1A19] border border-white/10 relative">
-                    <img
-                      src="assets/project-faturamento.jpg"
-                      alt="Preview do sistema Controle de Entregas"
-                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      onerror="this.style.display='none';"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
-                  </div>
-
-                  <!-- Project Info -->
-                  <div class="min-w-0 pr-6">
-                    <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors">
-                      Controle de Entregas
-                    </h3>
-                    <p class="font-inter text-xs sm:text-[13px] font-semibold text-[#F46C38] mt-1">
-                      Python • Flet • SQLite • ViaCEP API • Matplotlib • Docker • Pytest
-                    </p>
-                    <p class="font-inter text-sm text-[#998F8F] mt-2 leading-relaxed">
-                      Aplicação desktop/mobile com arquitetura em camadas para gestão financeira e operacional de entregadores, validação de CEP e gráficos de desempenho.
-                    </p>
+          <div class="mt-8 space-y-4">
+            <!-- Project 1: Controle de Entregas -->
+            <a href="https://github.com/washiquant" target="_blank" rel="noopener noreferrer"
+              class="reveal-up group flex flex-col sm:flex-row sm:items-center justify-between gap-5 p-4 sm:p-5 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-5 flex-1 min-w-0">
+                <!-- Project Thumbnail -->
+                <div
+                  class="w-full sm:w-36 h-28 rounded-xl overflow-hidden shrink-0 bg-[#1C1A19] border border-white/10 relative">
+                  <img src="assets/project-faturamento.jpg" alt="Preview do sistema Controle de Entregas"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onerror="this.style.display='none';" />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none">
                   </div>
                 </div>
 
-                <!-- Animated Diagonal Arrow ↗ -->
-                <span
-                  class="absolute top-5 right-5 sm:static sm:self-start text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
-                  aria-hidden="true"
-                >
-                  <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
-                </span>
-              </a>
+                <!-- Project Info -->
+                <div class="min-w-0 pr-6">
+                  <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors">
+                    Controle de Entregas
+                  </h3>
+                  <p class="font-inter text-xs sm:text-[13px] font-semibold text-[#F46C38] mt-1">
+                    Python • Flet • SQLite • ViaCEP API • Matplotlib • Docker • Pytest
+                  </p>
+                  <p class="font-inter text-sm text-[#998F8F] mt-2 leading-relaxed">
+                    Aplicação desktop/mobile com arquitetura em camadas para gestão financeira e operacional de
+                    entregadores, validação de CEP e gráficos de desempenho.
+                  </p>
+                </div>
+              </div>
 
-              <!-- Project 2: Alerta de Vagas Tech (Buscador de Vagas) -->
-              <a
-                href="https://github.com/washiquant"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="reveal-up group flex flex-col sm:flex-row sm:items-center justify-between gap-5 p-4 sm:p-5 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative"
-                style="--delay: 70ms;"
-              >
-                <div class="flex flex-col sm:flex-row sm:items-center gap-5 flex-1 min-w-0">
-                  <!-- Project Thumbnail -->
-                  <div class="w-full sm:w-36 h-28 rounded-xl overflow-hidden shrink-0 bg-[#1C1A19] border border-white/10 relative">
-                    <img
-                      src="assets/project-pipeline.jpg"
-                      alt="Diagrama do pipeline Alerta de Vagas Tech"
-                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      onerror="this.style.display='none';"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none"></div>
-                  </div>
+              <!-- Animated Diagonal Arrow ↗ -->
+              <span
+                class="absolute top-5 right-5 sm:static sm:self-start text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
+                aria-hidden="true">
+                <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+              </span>
+            </a>
 
-                  <!-- Project Info -->
-                  <div class="min-w-0 pr-6">
-                    <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors">
-                      Alerta de Vagas Tech (Buscador de Vagas)
-                    </h3>
-                    <p class="font-inter text-xs sm:text-[13px] font-semibold text-[#F46C38] mt-1">
-                      Python • SQLAlchemy • SQLite • Telegram Bot API
-                    </p>
-                    <p class="font-inter text-sm text-[#998F8F] mt-2 leading-relaxed">
-                      Sistema automatizado de scraping, filtragem e monitoramento de oportunidades de tecnologia com envio de notificações em tempo real via Telegram.
-                    </p>
+            <!-- Project 2: Alerta de Vagas Tech (Buscador de Vagas) -->
+            <a href="https://github.com/washiquant" target="_blank" rel="noopener noreferrer"
+              class="reveal-up group flex flex-col sm:flex-row sm:items-center justify-between gap-5 p-4 sm:p-5 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative"
+              style="--delay: 70ms;">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-5 flex-1 min-w-0">
+                <!-- Project Thumbnail -->
+                <div
+                  class="w-full sm:w-36 h-28 rounded-xl overflow-hidden shrink-0 bg-[#1C1A19] border border-white/10 relative">
+                  <img src="assets/project-pipeline.jpg" alt="Diagrama do pipeline Alerta de Vagas Tech"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onerror="this.style.display='none';" />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none">
                   </div>
                 </div>
 
-                <!-- Animated Diagonal Arrow ↗ -->
-                <span
-                  class="absolute top-5 right-5 sm:static sm:self-start text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
-                  aria-hidden="true"
-                >
-                  <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
-                </span>
-              </a>
+                <!-- Project Info -->
+                <div class="min-w-0 pr-6">
+                  <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors">
+                    Alerta de Vagas Tech (Buscador de Vagas)
+                  </h3>
+                  <p class="font-inter text-xs sm:text-[13px] font-semibold text-[#F46C38] mt-1">
+                    Python • SQLAlchemy • SQLite • Telegram Bot API
+                  </p>
+                  <p class="font-inter text-sm text-[#998F8F] mt-2 leading-relaxed">
+                    Sistema automatizado de scraping, filtragem e monitoramento de oportunidades de tecnologia com envio
+                    de notificações em tempo real via Telegram.
+                  </p>
+                </div>
+              </div>
 
-              <!-- Project 3: Setup Quant & Análise Operacional -->
-              <a
-                href="https://github.com/washiquant"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="reveal-up group flex flex-col sm:flex-row sm:items-center justify-between gap-5 p-4 sm:p-5 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative"
-                style="--delay: 140ms;"
-              >
-                <div class="flex flex-col sm:flex-row sm:items-center gap-5 flex-1 min-w-0">
-                  <!-- Custom Quant Analytics Thumbnail -->
-                  <div class="w-full sm:w-36 h-28 rounded-xl overflow-hidden shrink-0 bg-[#1C1A19] border border-white/10 relative flex items-center justify-center p-3">
-                    <svg
-                      viewBox="0 0 160 110"
-                      class="w-full h-full group-hover:scale-105 transition-transform duration-500"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <rect width="160" height="110" rx="8" fill="#151312" />
-                      <!-- Grid lines -->
-                      <line x1="14" y1="28" x2="146" y2="28" stroke="#282627" stroke-width="1" />
-                      <line x1="14" y1="55" x2="146" y2="55" stroke="#282627" stroke-width="1" />
-                      <line x1="14" y1="82" x2="146" y2="82" stroke="#282627" stroke-width="1" />
-                      <!-- Candlesticks -->
-                      <line x1="30" y1="62" x2="30" y2="88" stroke="#F46C38" stroke-width="1.8" />
-                      <rect x="26" y="68" width="8" height="14" rx="1.5" fill="#F46C38" />
-                      <line x1="54" y1="45" x2="54" y2="75" stroke="#C5FF41" stroke-width="1.8" />
-                      <rect x="50" y="52" width="8" height="16" rx="1.5" fill="#C5FF41" />
-                      <line x1="78" y1="50" x2="78" y2="76" stroke="#F46C38" stroke-width="1.8" />
-                      <rect x="74" y="56" width="8" height="12" rx="1.5" fill="#F46C38" />
-                      <line x1="102" y1="30" x2="102" y2="62" stroke="#C5FF41" stroke-width="1.8" />
-                      <rect x="98" y="36" width="8" height="18" rx="1.5" fill="#C5FF41" />
-                      <line x1="126" y1="18" x2="126" y2="48" stroke="#C5FF41" stroke-width="1.8" />
-                      <rect x="122" y="22" width="8" height="19" rx="1.5" fill="#C5FF41" />
-                      <!-- Moving Average Curve -->
-                      <path
-                        d="M 22 80 Q 60 66, 88 50 T 138 22"
-                        stroke="#F46C38"
-                        stroke-width="2.2"
-                        stroke-linecap="round"
-                      />
-                    </svg>
-                  </div>
+              <!-- Animated Diagonal Arrow ↗ -->
+              <span
+                class="absolute top-5 right-5 sm:static sm:self-start text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
+                aria-hidden="true">
+                <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+              </span>
+            </a>
 
-                  <!-- Project Info -->
-                  <div class="min-w-0 pr-6">
-                    <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors">
-                      Setup Quant &amp; Análise Operacional
-                    </h3>
-                    <p class="font-inter text-xs sm:text-[13px] font-semibold text-[#F46C38] mt-1">
-                      Python • Pandas • Automação Financeira
-                    </p>
-                    <p class="font-inter text-sm text-[#998F8F] mt-2 leading-relaxed">
-                      Scripts voltados para análise de dados de mercado financeiro, leitura de indicadores e gestão quantitativa de risco.
-                    </p>
-                  </div>
+            <!-- Project 3: Setup Quant & Análise Operacional -->
+            <a href="https://github.com/washiquant" target="_blank" rel="noopener noreferrer"
+              class="reveal-up group flex flex-col sm:flex-row sm:items-center justify-between gap-5 p-4 sm:p-5 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative"
+              style="--delay: 140ms;">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-5 flex-1 min-w-0">
+                <!-- Custom Quant Analytics Thumbnail -->
+                <div
+                  class="w-full sm:w-36 h-28 rounded-xl overflow-hidden shrink-0 bg-[#1C1A19] border border-white/10 relative flex items-center justify-center p-3">
+                  <svg viewBox="0 0 160 110"
+                    class="w-full h-full group-hover:scale-105 transition-transform duration-500" fill="none"
+                    aria-hidden="true">
+                    <rect width="160" height="110" rx="8" fill="#151312" />
+                    <!-- Grid lines -->
+                    <line x1="14" y1="28" x2="146" y2="28" stroke="#282627" stroke-width="1" />
+                    <line x1="14" y1="55" x2="146" y2="55" stroke="#282627" stroke-width="1" />
+                    <line x1="14" y1="82" x2="146" y2="82" stroke="#282627" stroke-width="1" />
+                    <!-- Candlesticks -->
+                    <line x1="30" y1="62" x2="30" y2="88" stroke="#F46C38" stroke-width="1.8" />
+                    <rect x="26" y="68" width="8" height="14" rx="1.5" fill="#F46C38" />
+                    <line x1="54" y1="45" x2="54" y2="75" stroke="#C5FF41" stroke-width="1.8" />
+                    <rect x="50" y="52" width="8" height="16" rx="1.5" fill="#C5FF41" />
+                    <line x1="78" y1="50" x2="78" y2="76" stroke="#F46C38" stroke-width="1.8" />
+                    <rect x="74" y="56" width="8" height="12" rx="1.5" fill="#F46C38" />
+                    <line x1="102" y1="30" x2="102" y2="62" stroke="#C5FF41" stroke-width="1.8" />
+                    <rect x="98" y="36" width="8" height="18" rx="1.5" fill="#C5FF41" />
+                    <line x1="126" y1="18" x2="126" y2="48" stroke="#C5FF41" stroke-width="1.8" />
+                    <rect x="122" y="22" width="8" height="19" rx="1.5" fill="#C5FF41" />
+                    <!-- Moving Average Curve -->
+                    <path d="M 22 80 Q 60 66, 88 50 T 138 22" stroke="#F46C38" stroke-width="2.2"
+                      stroke-linecap="round" />
+                  </svg>
                 </div>
 
-                <!-- Animated Diagonal Arrow ↗ -->
-                <span
-                  class="absolute top-5 right-5 sm:static sm:self-start text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
-                  aria-hidden="true"
-                >
-                  <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
-                </span>
-              </a>
-            </div>
-          </section>
+                <!-- Project Info -->
+                <div class="min-w-0 pr-6">
+                  <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors">
+                    Setup Quant &amp; Análise Operacional
+                  </h3>
+                  <p class="font-inter text-xs sm:text-[13px] font-semibold text-[#F46C38] mt-1">
+                    Python • Pandas • Automação Financeira
+                  </p>
+                  <p class="font-inter text-sm text-[#998F8F] mt-2 leading-relaxed">
+                    Scripts voltados para análise de dados de mercado financeiro, leitura de indicadores e gestão
+                    quantitativa de risco.
+                  </p>
+                </div>
+              </div>
 
-          <!-- ================================================================
+              <!-- Animated Diagonal Arrow ↗ -->
+              <span
+                class="absolute top-5 right-5 sm:static sm:self-start text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
+                aria-hidden="true">
+                <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+              </span>
+            </a>
+          </div>
+        </section>
+
+        <!-- ================================================================
                SEÇÃO 3: TRAJETÓRIA & FORMAÇÃO (EXPERIENCE)
                ================================================================ -->
-          <section id="experience" class="scroll-mt-28">
-            <div class="reveal-up">
-              <h2 class="section-giant-title text-5xl sm:text-7xl xl:text-[80px]">
-                <span class="block text-white">FORMAÇÃO &amp;</span>
-                <span class="block text-[#353334]">TRAJETÓRIA</span>
-              </h2>
-            </div>
+        <section id="experience" class="scroll-mt-28">
+          <div class="reveal-up">
+            <h2 class="section-giant-title text-5xl sm:text-7xl xl:text-[80px]">
+              <span class="block text-white">FORMAÇÃO &amp;</span>
+              <span class="block text-[#353334]">TRAJETÓRIA</span>
+            </h2>
+          </div>
 
-            <div class="mt-8 space-y-4">
-              <!-- Item 1: Universidade São Judas Tadeu -->
-              <article
-                class="reveal-up group p-5 sm:p-6 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors pr-8">
-                    Universidade São Judas Tadeu — Análise e Desenvolvimento de Sistemas (ADS)
-                  </h3>
-                  <span
-                    class="text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
-                    aria-hidden="true"
-                  >
-                    <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
-                  </span>
-                </div>
+          <div class="mt-8 space-y-4">
+            <!-- Item 1: Universidade São Judas Tadeu -->
+            <article
+              class="reveal-up group p-5 sm:p-6 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative">
+              <div class="flex items-start justify-between gap-4">
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors pr-8">
+                  Universidade São Judas Tadeu — Análise e Desenvolvimento de Sistemas (ADS)
+                </h3>
+                <span
+                  class="text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
+                  aria-hidden="true">
+                  <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                </span>
+              </div>
 
-                <p class="font-inter text-sm sm:text-base text-[#998F8F] mt-2.5 leading-relaxed max-w-2xl">
-                  Graduação tecnológica com foco em engenharia de software, estruturas de dados, arquitetura de sistemas e bancos de dados.
-                </p>
+              <p class="font-inter text-sm sm:text-base text-[#998F8F] mt-2.5 leading-relaxed max-w-2xl">
+                Graduação tecnológica com foco em engenharia de software, estruturas de dados, arquitetura de sistemas e
+                bancos de dados.
+              </p>
 
-                <p class="font-inter text-xs sm:text-sm font-medium text-[#998F8F]/80 mt-4">
-                  Jan 2026 - Dez 2028 (Cursando)
-                </p>
-              </article>
+              <p class="font-inter text-xs sm:text-sm font-medium text-[#998F8F]/80 mt-4">
+                Jan 2026 - Dez 2028 (Cursando)
+              </p>
+            </article>
 
-              <!-- Item 2: SENAI São Caetano do Sul -->
-              <article
-                class="reveal-up group p-5 sm:p-6 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative"
-                style="--delay: 70ms;"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors pr-8">
-                    SENAI São Caetano do Sul — Desenvolvimento Back-End (C# / .NET)
-                  </h3>
-                  <span
-                    class="text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
-                    aria-hidden="true"
-                  >
-                    <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
-                  </span>
-                </div>
+            <!-- Item 2: SENAI São Caetano do Sul -->
+            <article
+              class="reveal-up group p-5 sm:p-6 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative"
+              style="--delay: 70ms;">
+              <div class="flex items-start justify-between gap-4">
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors pr-8">
+                  SENAI São Caetano do Sul — Desenvolvimento Back-End (C# / .NET)
+                </h3>
+                <span
+                  class="text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
+                  aria-hidden="true">
+                  <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                </span>
+              </div>
 
-                <p class="font-inter text-sm sm:text-base text-[#998F8F] mt-2.5 leading-relaxed max-w-2xl">
-                  Qualificação técnica presencial intensiva (160 horas) focada em programação orientada a objetos, desenvolvimento de APIs, persistência de dados e arquitetura .NET.
-                </p>
+              <p class="font-inter text-sm sm:text-base text-[#998F8F] mt-2.5 leading-relaxed max-w-2xl">
+                Qualificação técnica presencial intensiva (160 horas) focada em programação orientada a objetos,
+                desenvolvimento de APIs, persistência de dados e arquitetura .NET.
+              </p>
 
-                <p class="font-inter text-xs sm:text-sm font-medium text-[#998F8F]/80 mt-4">
-                  2026 (160 horas)
-                </p>
-              </article>
+              <p class="font-inter text-xs sm:text-sm font-medium text-[#998F8F]/80 mt-4">
+                2026 (160 horas)
+              </p>
+            </article>
 
-              <!-- Item 3: SENAI / Google Cloud & DSA -->
-              <article
-                class="reveal-up group p-5 sm:p-6 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative"
-                style="--delay: 140ms;"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors pr-8">
-                    SENAI / Google Cloud — Fundamentos de IA Generativa &amp; Data Science Academy
-                  </h3>
-                  <span
-                    class="text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
-                    aria-hidden="true"
-                  >
-                    <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
-                  </span>
-                </div>
+            <!-- Item 3: SENAI / Google Cloud & DSA -->
+            <article
+              class="reveal-up group p-5 sm:p-6 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative"
+              style="--delay: 140ms;">
+              <div class="flex items-start justify-between gap-4">
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors pr-8">
+                  SENAI / Google Cloud — Fundamentos de IA Generativa &amp; Data Science Academy
+                </h3>
+                <span
+                  class="text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
+                  aria-hidden="true">
+                  <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                </span>
+              </div>
 
-                <p class="font-inter text-sm sm:text-base text-[#998F8F] mt-2.5 leading-relaxed max-w-2xl">
-                  Formação complementar em Inteligência Artificial Generativa na nuvem (Google Cloud) e trilha de Python para Ciência de Dados e Certificação PCAP/PCEP.
-                </p>
+              <p class="font-inter text-sm sm:text-base text-[#998F8F] mt-2.5 leading-relaxed max-w-2xl">
+                Formação complementar em Inteligência Artificial Generativa na nuvem (Google Cloud) e trilha de Python
+                para Ciência de Dados e Certificação PCAP/PCEP.
+              </p>
 
-                <p class="font-inter text-xs sm:text-sm font-medium text-[#998F8F]/80 mt-4">
-                  2026
-                </p>
-              </article>
-            </div>
-          </section>
+              <p class="font-inter text-xs sm:text-sm font-medium text-[#998F8F]/80 mt-4">
+                2026
+              </p>
+            </article>
+          </div>
+        </section>
 
-          <!-- ================================================================
+        <!-- ================================================================
                SEÇÃO 4: PREMIUM TOOLS (TECH STACK)
                ================================================================ -->
-          <section id="tools" class="scroll-mt-28">
-            <div class="reveal-up">
-              <h2 class="section-giant-title text-5xl sm:text-7xl xl:text-[80px]">
-                <span class="block text-white">TECH</span>
-                <span class="block text-[#353334]">STACK</span>
-              </h2>
-            </div>
+        <section id="tools" class="scroll-mt-28">
+          <div class="reveal-up">
+            <h2 class="section-giant-title text-5xl sm:text-7xl xl:text-[80px]">
+              <span class="block text-white">TECH</span>
+              <span class="block text-[#353334]">STACK</span>
+            </h2>
+          </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-              <!-- Tool 1: Python -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+            <!-- Tool 1: Python -->
+            <div
+              class="reveal-up group flex items-center gap-4 p-4 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300">
               <div
-                class="reveal-up group flex items-center gap-4 p-4 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300"
-              >
-                <div class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300">
-                  <!-- Python Brand SVG -->
-                  <svg class="w-8 h-8" viewBox="0 0 128 128" fill="none" aria-hidden="true">
-                    <path
-                      fill="#3776AB"
-                      d="M63.39 12c-26.2 0-24.56 11.35-24.56 11.35l.03 11.76h25v3.53H28.9S12 36.73 12 63.16c0 26.43 14.77 25.49 14.77 25.49h8.81V76.38s-.47-14.77 14.53-14.77h24.81s13.94.23 13.94-13.48V25.55S90.98 12 63.39 12zm-13.8 7.82a4.48 4.48 0 1 1 0 8.96 4.48 4.48 0 0 1 0-8.96z"
-                    />
-                    <path
-                      fill="#FFD43B"
-                      d="M64.61 116c26.2 0 24.56-11.35 24.56-11.35l-.03-11.76h-25v-3.53H99.1S116 91.27 116 64.84c0-26.43-14.77-25.49-14.77-25.49h-8.81v12.27s.47 14.77-14.53 14.77H53.08s-13.94-.23-13.94 13.48v22.58S37.02 116 64.61 116zm13.8-7.82a4.48 4.48 0 1 1 0-8.96 4.48 4.48 0 0 1 0 8.96z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">Python</h3>
-                  <p class="font-inter text-sm text-[#998F8F] mt-0.5">Back-End &amp; Data Automation</p>
-                </div>
+                class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300">
+                <!-- Python Brand SVG -->
+                <svg class="w-8 h-8" viewBox="0 0 128 128" fill="none" aria-hidden="true">
+                  <path fill="#3776AB"
+                    d="M63.39 12c-26.2 0-24.56 11.35-24.56 11.35l.03 11.76h25v3.53H28.9S12 36.73 12 63.16c0 26.43 14.77 25.49 14.77 25.49h8.81V76.38s-.47-14.77 14.53-14.77h24.81s13.94.23 13.94-13.48V25.55S90.98 12 63.39 12zm-13.8 7.82a4.48 4.48 0 1 1 0 8.96 4.48 4.48 0 0 1 0-8.96z" />
+                  <path fill="#FFD43B"
+                    d="M64.61 116c26.2 0 24.56-11.35 24.56-11.35l-.03-11.76h-25v-3.53H99.1S116 91.27 116 64.84c0-26.43-14.77-25.49-14.77-25.49h-8.81v12.27s.47 14.77-14.53 14.77H53.08s-13.94-.23-13.94 13.48v22.58S37.02 116 64.61 116zm13.8-7.82a4.48 4.48 0 1 1 0-8.96 4.48 4.48 0 0 1 0 8.96z" />
+                </svg>
               </div>
-
-              <!-- Tool 2: C# / .NET -->
-              <div
-                class="reveal-up group flex items-center gap-4 p-4 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300"
-                style="--delay: 50ms;"
-              >
-                <div class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300">
-                  <!-- C# / .NET Hexagon SVG -->
-                  <svg class="w-8 h-8" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-                    <path d="M32 4L57 18.5V45.5L32 60L7 45.5V18.5L32 4Z" fill="#512BD4" />
-                    <text
-                      x="32"
-                      y="38"
-                      text-anchor="middle"
-                      fill="#FFFFFF"
-                      font-family="Poppins, Inter, sans-serif"
-                      font-weight="800"
-                      font-size="18"
-                    >
-                      C#
-                    </text>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">C# / .NET</h3>
-                  <p class="font-inter text-sm text-[#998F8F] mt-0.5">Enterprise Back-End</p>
-                </div>
-              </div>
-
-              <!-- Tool 3: SQLite & SQLAlchemy -->
-              <div
-                class="reveal-up group flex items-center gap-4 p-4 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300"
-                style="--delay: 100ms;"
-              >
-                <div class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300 text-[#151312]">
-                  <i data-lucide="database" class="w-7 h-7 text-[#0F80CC] stroke-[2.2]"></i>
-                </div>
-                <div>
-                  <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">
-                    SQLite &amp; SQLAlchemy
-                  </h3>
-                  <p class="font-inter text-sm text-[#998F8F] mt-0.5">Database &amp; ORM</p>
-                </div>
-              </div>
-
-              <!-- Tool 4: Docker -->
-              <div
-                class="reveal-up group flex items-center gap-4 p-4 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300"
-                style="--delay: 150ms;"
-              >
-                <div class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300">
-                  <!-- Docker Container SVG -->
-                  <svg class="w-8 h-8" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-                    <rect x="14" y="25" width="7" height="7" rx="1" fill="#2496ED" />
-                    <rect x="23" y="25" width="7" height="7" rx="1" fill="#2496ED" />
-                    <rect x="32" y="25" width="7" height="7" rx="1" fill="#2496ED" />
-                    <rect x="23" y="16" width="7" height="7" rx="1" fill="#2496ED" />
-                    <rect x="32" y="16" width="7" height="7" rx="1" fill="#2496ED" />
-                    <path
-                      d="M56 31C53.5 29.5 49.5 30 48 31C47.5 27.5 45 25.5 45 25.5C45 25.5 42.5 28.5 43.5 32.5C42 33.5 39.5 34 37 34H8C7.5 42 12.5 49 24.5 49C38.5 49 47.5 41.5 50 35C52.5 35.2 55.5 34.5 57 32C56.7 31.6 56.3 31.2 56 31Z"
-                      fill="#2496ED"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">Docker</h3>
-                  <p class="font-inter text-sm text-[#998F8F] mt-0.5">Containerization</p>
-                </div>
-              </div>
-
-              <!-- Tool 5: Flet Framework -->
-              <div
-                class="reveal-up group flex items-center gap-4 p-4 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300"
-                style="--delay: 200ms;"
-              >
-                <div class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300">
-                  <i data-lucide="layout-grid" class="w-7 h-7 text-[#F46C38] stroke-[2.2]"></i>
-                </div>
-                <div>
-                  <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">Flet Framework</h3>
-                  <p class="font-inter text-sm text-[#998F8F] mt-0.5">Cross-Platform UI</p>
-                </div>
-              </div>
-
-              <!-- Tool 6: Git & GitHub -->
-              <div
-                class="reveal-up group flex items-center gap-4 p-4 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300"
-                style="--delay: 250ms;"
-              >
-                <div class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300">
-                  <i data-lucide="git-branch" class="w-7 h-7 text-[#151312] stroke-[2.3]"></i>
-                </div>
-                <div>
-                  <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">Git &amp; GitHub</h3>
-                  <p class="font-inter text-sm text-[#998F8F] mt-0.5">Version Control &amp; CI</p>
-                </div>
+              <div>
+                <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">Python</h3>
+                <p class="font-inter text-sm text-[#998F8F] mt-0.5">Back-End &amp; Data Automation</p>
               </div>
             </div>
-          </section>
 
-          <!-- ================================================================
+            <!-- Tool 2: C# / .NET -->
+            <div
+              class="reveal-up group flex items-center gap-4 p-4 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300"
+              style="--delay: 50ms;">
+              <div
+                class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300">
+                <!-- C# / .NET Hexagon SVG -->
+                <svg class="w-8 h-8" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                  <path d="M32 4L57 18.5V45.5L32 60L7 45.5V18.5L32 4Z" fill="#512BD4" />
+                  <text x="32" y="38" text-anchor="middle" fill="#FFFFFF" font-family="Poppins, Inter, sans-serif"
+                    font-weight="800" font-size="18">
+                    C#
+                  </text>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">C# / .NET</h3>
+                <p class="font-inter text-sm text-[#998F8F] mt-0.5">Enterprise Back-End</p>
+              </div>
+            </div>
+
+            <!-- Tool 3: SQLite & SQLAlchemy -->
+            <div
+              class="reveal-up group flex items-center gap-4 p-4 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300"
+              style="--delay: 100ms;">
+              <div
+                class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300 text-[#151312]">
+                <i data-lucide="database" class="w-7 h-7 text-[#0F80CC] stroke-[2.2]"></i>
+              </div>
+              <div>
+                <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">
+                  SQLite &amp; SQLAlchemy
+                </h3>
+                <p class="font-inter text-sm text-[#998F8F] mt-0.5">Database &amp; ORM</p>
+              </div>
+            </div>
+
+            <!-- Tool 4: Docker -->
+            <div
+              class="reveal-up group flex items-center gap-4 p-4 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300"
+              style="--delay: 150ms;">
+              <div
+                class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300">
+                <!-- Docker Container SVG -->
+                <svg class="w-8 h-8" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                  <rect x="14" y="25" width="7" height="7" rx="1" fill="#2496ED" />
+                  <rect x="23" y="25" width="7" height="7" rx="1" fill="#2496ED" />
+                  <rect x="32" y="25" width="7" height="7" rx="1" fill="#2496ED" />
+                  <rect x="23" y="16" width="7" height="7" rx="1" fill="#2496ED" />
+                  <rect x="32" y="16" width="7" height="7" rx="1" fill="#2496ED" />
+                  <path
+                    d="M56 31C53.5 29.5 49.5 30 48 31C47.5 27.5 45 25.5 45 25.5C45 25.5 42.5 28.5 43.5 32.5C42 33.5 39.5 34 37 34H8C7.5 42 12.5 49 24.5 49C38.5 49 47.5 41.5 50 35C52.5 35.2 55.5 34.5 57 32C56.7 31.6 56.3 31.2 56 31Z"
+                    fill="#2496ED" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">Docker</h3>
+                <p class="font-inter text-sm text-[#998F8F] mt-0.5">Containerization</p>
+              </div>
+            </div>
+
+            <!-- Tool 5: Flet Framework -->
+            <div
+              class="reveal-up group flex items-center gap-4 p-4 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300"
+              style="--delay: 200ms;">
+              <div
+                class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300">
+                <i data-lucide="layout-grid" class="w-7 h-7 text-[#F46C38] stroke-[2.2]"></i>
+              </div>
+              <div>
+                <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">Flet Framework</h3>
+                <p class="font-inter text-sm text-[#998F8F] mt-0.5">Cross-Platform UI</p>
+              </div>
+            </div>
+
+            <!-- Tool 6: Git & GitHub -->
+            <div
+              class="reveal-up group flex items-center gap-4 p-4 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300"
+              style="--delay: 250ms;">
+              <div
+                class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300">
+                <i data-lucide="git-branch" class="w-7 h-7 text-[#151312] stroke-[2.3]"></i>
+              </div>
+              <div>
+                <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">Git &amp; GitHub</h3>
+                <p class="font-inter text-sm text-[#998F8F] mt-0.5">Version Control &amp; CI</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
                SEÇÃO 5: TECH THOUGHTS (ESTUDOS & ARTIGOS)
                ================================================================ -->
-          <section id="insights" class="scroll-mt-28">
-            <div class="reveal-up">
-              <h2 class="section-giant-title text-5xl sm:text-7xl xl:text-[80px]">
-                <span class="block text-white">TECH</span>
-                <span class="block text-[#353334]">INSIGHTS</span>
-              </h2>
-            </div>
+        <section id="insights" class="scroll-mt-28">
+          <div class="reveal-up">
+            <h2 class="section-giant-title text-5xl sm:text-7xl xl:text-[80px]">
+              <span class="block text-white">TECH</span>
+              <span class="block text-[#353334]">INSIGHTS</span>
+            </h2>
+          </div>
 
-            <div class="mt-8 space-y-4">
-              <!-- Study Card 1 -->
-              <a
-                href="https://github.com/washiquant"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="reveal-up group block p-5 sm:p-6 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors pr-8">
-                    Arquitetura em Camadas com Python, Flet e SQLite na Prática
-                  </h3>
-                  <span
-                    class="text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
-                    aria-hidden="true"
-                  >
-                    <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
-                  </span>
-                </div>
+          <div class="mt-8 space-y-4">
+            <!-- Study Card 1 -->
+            <a href="https://github.com/washiquant" target="_blank" rel="noopener noreferrer"
+              class="reveal-up group block p-5 sm:p-6 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative">
+              <div class="flex items-start justify-between gap-4">
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors pr-8">
+                  Arquitetura em Camadas com Python, Flet e SQLite na Prática
+                </h3>
+                <span
+                  class="text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
+                  aria-hidden="true">
+                  <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                </span>
+              </div>
 
-                <p class="font-inter text-sm sm:text-base text-[#998F8F] mt-2.5 leading-relaxed max-w-2xl">
-                  Como estruturar persistência local segura, testes unitários com Pytest e integração de APIs REST em aplicações multiplataforma.
-                </p>
+              <p class="font-inter text-sm sm:text-base text-[#998F8F] mt-2.5 leading-relaxed max-w-2xl">
+                Como estruturar persistência local segura, testes unitários com Pytest e integração de APIs REST em
+                aplicações multiplataforma.
+              </p>
 
-                <div class="font-inter flex items-center justify-between text-xs sm:text-sm text-[#998F8F]/80 mt-5">
-                  <span>2026</span>
-                  <span>4 min read</span>
-                </div>
-              </a>
+              <div class="font-inter flex items-center justify-between text-xs sm:text-sm text-[#998F8F]/80 mt-5">
+                <span>2026</span>
+                <span>4 min read</span>
+              </div>
+            </a>
 
-              <!-- Study Card 2 -->
-              <a
-                href="https://github.com/washiquant"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="reveal-up group block p-5 sm:p-6 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative"
-                style="--delay: 80ms;"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors pr-8">
-                    Automação de Dados e Bots com SQLAlchemy e Telegram API
-                  </h3>
-                  <span
-                    class="text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
-                    aria-hidden="true"
-                  >
-                    <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
-                  </span>
-                </div>
+            <!-- Study Card 2 -->
+            <a href="https://github.com/washiquant" target="_blank" rel="noopener noreferrer"
+              class="reveal-up group block p-5 sm:p-6 rounded-2xl hover:bg-[#1C1A19] border border-transparent hover:border-white/[0.06] transition-all duration-300 relative"
+              style="--delay: 80ms;">
+              <div class="flex items-start justify-between gap-4">
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#F46C38] transition-colors pr-8">
+                  Automação de Dados e Bots com SQLAlchemy e Telegram API
+                </h3>
+                <span
+                  class="text-[#F46C38] shrink-0 transform transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
+                  aria-hidden="true">
+                  <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                </span>
+              </div>
 
-                <p class="font-inter text-sm sm:text-base text-[#998F8F] mt-2.5 leading-relaxed max-w-2xl">
-                  Construindo pipelines leves em Python para monitorar dados da web, evitar duplicidades no banco e disparar alertas em tempo real.
-                </p>
+              <p class="font-inter text-sm sm:text-base text-[#998F8F] mt-2.5 leading-relaxed max-w-2xl">
+                Construindo pipelines leves em Python para monitorar dados da web, evitar duplicidades no banco e
+                disparar alertas em tempo real.
+              </p>
 
-                <div class="font-inter flex items-center justify-between text-xs sm:text-sm text-[#998F8F]/80 mt-5">
-                  <span>2026</span>
-                  <span>5 min read</span>
-                </div>
-              </a>
-            </div>
-          </section>
+              <div class="font-inter flex items-center justify-between text-xs sm:text-sm text-[#998F8F]/80 mt-5">
+                <span>2026</span>
+                <span>5 min read</span>
+              </div>
+            </a>
+          </div>
+        </section>
 
-          <!-- ================================================================
+        <!-- ================================================================
                SEÇÃO 6: LET'S WORK TOGETHER (CONTATO)
                ================================================================ -->
-          <section id="contact" class="scroll-mt-28">
-            <div class="reveal-up">
-              <h2 class="section-giant-title text-5xl sm:text-7xl xl:text-[80px]">
-                <span class="block text-white">LET'S WORK</span>
-                <span class="block text-[#353334]">TOGETHER</span>
-              </h2>
+        <section id="contact" class="scroll-mt-28">
+          <div class="reveal-up">
+            <h2 class="section-giant-title text-5xl sm:text-7xl xl:text-[80px]">
+              <span class="block text-white">LET'S WORK</span>
+              <span class="block text-[#353334]">TOGETHER</span>
+            </h2>
+          </div>
+
+          <form id="contact-form" class="mt-8 space-y-5 reveal-up font-inter" style="--delay: 90ms;">
+            <!-- Row 1: Nome & Email -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="input-name" class="block text-xs font-medium text-[#998F8F] mb-2">
+                  Nome
+                </label>
+                <input type="text" id="input-name" name="name" required placeholder="Seu Nome"
+                  class="w-full bg-[#282627] text-white placeholder-[#998F8F]/60 rounded-xl px-4 py-3.5 text-sm border border-white/[0.06] focus:outline-none focus:border-[#F46C38] focus:ring-1 focus:ring-[#F46C38] transition-all" />
+              </div>
+
+              <div>
+                <label for="input-email" class="block text-xs font-medium text-[#998F8F] mb-2">
+                  Email
+                </label>
+                <input type="email" id="input-email" name="email" required placeholder="seu@email.com"
+                  class="w-full bg-[#282627] text-white placeholder-[#998F8F]/60 rounded-xl px-4 py-3.5 text-sm border border-white/[0.06] focus:outline-none focus:border-[#F46C38] focus:ring-1 focus:ring-[#F46C38] transition-all" />
+              </div>
             </div>
 
-            <form
-              id="contact-form"
-              class="mt-8 space-y-5 reveal-up font-inter"
-              style="--delay: 90ms;"
-            >
-              <!-- Row 1: Nome & Email -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="input-name" class="block text-xs font-medium text-[#998F8F] mb-2">
-                    Nome
-                  </label>
-                  <input
-                    type="text"
-                    id="input-name"
-                    name="name"
-                    required
-                    placeholder="Seu Nome"
-                    class="w-full bg-[#282627] text-white placeholder-[#998F8F]/60 rounded-xl px-4 py-3.5 text-sm border border-white/[0.06] focus:outline-none focus:border-[#F46C38] focus:ring-1 focus:ring-[#F46C38] transition-all"
-                  />
-                </div>
+            <!-- Row 2: Select Área de Interesse -->
+            <div>
+              <label for="input-interest" class="block text-xs font-medium text-[#998F8F] mb-2">
+                Área de Interesse
+              </label>
+              <select id="input-interest" name="interest" required
+                class="custom-select w-full bg-[#282627] text-white rounded-xl px-4 py-3.5 text-sm border border-white/[0.06] focus:outline-none focus:border-[#F46C38] focus:ring-1 focus:ring-[#F46C38] transition-all cursor-pointer">
+                <option value="Oportunidade Back-End (Python / C#)">
+                  Oportunidade Back-End (Python / C#)
+                </option>
+                <option value="Estágio / Júnior em Tecnologia ou Operações">
+                  Estágio / Júnior em Tecnologia ou Operações
+                </option>
+                <option value="Projeto Freelance">Projeto Freelance</option>
+                <option value="Networking">Networking</option>
+              </select>
+            </div>
 
-                <div>
-                  <label for="input-email" class="block text-xs font-medium text-[#998F8F] mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="input-email"
-                    name="email"
-                    required
-                    placeholder="seu@email.com"
-                    class="w-full bg-[#282627] text-white placeholder-[#998F8F]/60 rounded-xl px-4 py-3.5 text-sm border border-white/[0.06] focus:outline-none focus:border-[#F46C38] focus:ring-1 focus:ring-[#F46C38] transition-all"
-                  />
-                </div>
-              </div>
+            <!-- Row 3: Textarea Mensagem -->
+            <div>
+              <label for="input-message" class="block text-xs font-medium text-[#998F8F] mb-2">
+                Mensagem
+              </label>
+              <textarea id="input-message" name="message" rows="5" required placeholder="Escreva sua mensagem..."
+                class="w-full bg-[#282627] text-white placeholder-[#998F8F]/60 rounded-xl px-4 py-3.5 text-sm border border-white/[0.06] focus:outline-none focus:border-[#F46C38] focus:ring-1 focus:ring-[#F46C38] transition-all resize-y"></textarea>
+            </div>
 
-              <!-- Row 2: Select Área de Interesse -->
-              <div>
-                <label for="input-interest" class="block text-xs font-medium text-[#998F8F] mb-2">
-                  Área de Interesse
-                </label>
-                <select
-                  id="input-interest"
-                  name="interest"
-                  required
-                  class="custom-select w-full bg-[#282627] text-white rounded-xl px-4 py-3.5 text-sm border border-white/[0.06] focus:outline-none focus:border-[#F46C38] focus:ring-1 focus:ring-[#F46C38] transition-all cursor-pointer"
-                >
-                  <option value="Oportunidade Back-End (Python / C#)">
-                    Oportunidade Back-End (Python / C#)
-                  </option>
-                  <option value="Estágio / Júnior em Tecnologia ou Operações">
-                    Estágio / Júnior em Tecnologia ou Operações
-                  </option>
-                  <option value="Projeto Freelance">Projeto Freelance</option>
-                  <option value="Networking">Networking</option>
-                </select>
-              </div>
+            <!-- Submit Button -->
+            <button type="submit"
+              class="w-full bg-[#F46C38] hover:brightness-110 active:scale-[0.99] text-white font-poppins font-bold text-sm sm:text-base py-4 rounded-xl transition-all duration-300 shadow-lg shadow-[#F46C38]/20 hover:shadow-[#F46C38]/40 cursor-pointer">
+              Enviar Mensagem
+            </button>
 
-              <!-- Row 3: Textarea Mensagem -->
-              <div>
-                <label for="input-message" class="block text-xs font-medium text-[#998F8F] mb-2">
-                  Mensagem
-                </label>
-                <textarea
-                  id="input-message"
-                  name="message"
-                  rows="5"
-                  required
-                  placeholder="Escreva sua mensagem..."
-                  class="w-full bg-[#282627] text-white placeholder-[#998F8F]/60 rounded-xl px-4 py-3.5 text-sm border border-white/[0.06] focus:outline-none focus:border-[#F46C38] focus:ring-1 focus:ring-[#F46C38] transition-all resize-y"
-                ></textarea>
-              </div>
-
-              <!-- Submit Button -->
-              <button
-                type="submit"
-                class="w-full bg-[#F46C38] hover:brightness-110 active:scale-[0.99] text-white font-poppins font-bold text-sm sm:text-base py-4 rounded-xl transition-all duration-300 shadow-lg shadow-[#F46C38]/20 hover:shadow-[#F46C38]/40 cursor-pointer"
-              >
-                Enviar Mensagem
-              </button>
-
-              <!-- Form Feedback Banner -->
-              <div
-                id="form-feedback"
-                role="status"
-                aria-live="polite"
-                class="hidden rounded-xl bg-[#1C1A19] border border-[#C5FF41]/40 px-4 py-3 text-xs sm:text-sm text-[#C5FF41] font-medium"
-              >
-                Redirecionando sua mensagem para o cliente de e-mail (washiwm1@gmail.com)...
-              </div>
-            </form>
-          </section>
-        </main>
-      </div>
-
-      <!-- ====================================================================
-           FOOTER
-           ==================================================================== -->
-      <footer class="mt-24 pt-8 border-t border-white/[0.06] text-center font-inter text-xs sm:text-sm text-[#998F8F]">
-        <p>
-          Desenvolvido por
-          <a
-            href="https://github.com/washiquant"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-[#F46C38] font-semibold hover:underline"
-          >
-            Washington Willian
-          </a>
-          • Hospedado via
-          <span class="text-white font-medium">GitHub Pages</span>
-        </p>
-      </footer>
+            <!-- Form Feedback Banner -->
+            <div id="form-feedback" role="status" aria-live="polite"
+              class="hidden rounded-xl bg-[#1C1A19] border border-[#C5FF41]/40 px-4 py-3 text-xs sm:text-sm text-[#C5FF41] font-medium">
+              Redirecionando sua mensagem para o cliente de e-mail (washiwm1@gmail.com)...
+            </div>
+          </form>
+        </section>
+      </main>
     </div>
 
-    <!-- ======================================================================
+    <!-- ====================================================================
+           FOOTER
+           ==================================================================== -->
+    <footer class="mt-24 pt-8 border-t border-white/[0.06] text-center font-inter text-xs sm:text-sm text-[#998F8F]">
+      <p>
+        Desenvolvido por
+        <a href="https://github.com/washiquant" target="_blank" rel="noopener noreferrer"
+          class="text-[#F46C38] font-semibold hover:underline">
+          Washington Willian
+        </a>
+        • Hospedado via
+        <span class="text-white font-medium">GitHub Pages</span>
+      </p>
+    </footer>
+  </div>
+
+  <!-- ======================================================================
          VANILLA JAVASCRIPT: LUCIDE INIT, SCROLL REVEAL, ACTIVE NAV & FORM
          ====================================================================== -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        // 1. Initialize Lucide Icons
-        if (window.lucide) {
-          window.lucide.createIcons();
-        }
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Initialize Lucide Icons
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
 
-        // 2. IntersectionObserver Fade-Up Entrance Animations
-        const revealElements = document.querySelectorAll('.reveal-up');
-        if ('IntersectionObserver' in window) {
-          const revealObserver = new IntersectionObserver(
-            (entries, observer) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add('is-visible');
-                  observer.unobserve(entry.target);
-                }
-              });
-            },
-            {
-              threshold: 0.1,
-              rootMargin: '0px 0px -40px 0px',
-            }
+      // 2. IntersectionObserver Fade-Up Entrance Animations
+      const revealElements = document.querySelectorAll('.reveal-up');
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px',
+          }
+        );
+
+        revealElements.forEach((el) => revealObserver.observe(el));
+      } else {
+        revealElements.forEach((el) => el.classList.add('is-visible'));
+      }
+
+      // 3. Active Top Floating Pill Icon Highlight on Scroll
+      const trackedIds = ['home', 'projects', 'experience', 'tools', 'contact'];
+      const navLinks = document.querySelectorAll('[data-nav-target]');
+
+      function updateActiveNav() {
+        const scrollMarker = window.scrollY + window.innerHeight * 0.35;
+        let activeId = 'home';
+
+        trackedIds.forEach((id) => {
+          const section = document.getElementById(id);
+          if (section && scrollMarker >= section.offsetTop) {
+            activeId = id;
+          }
+        });
+
+        navLinks.forEach((link) => {
+          const isTarget = link.getAttribute('data-nav-target') === activeId;
+          link.classList.toggle('active', isTarget);
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveNav, { passive: true });
+      updateActiveNav();
+
+      // 4. Functional Static Contact Form Handler (GitHub Pages Compatible)
+      const contactForm = document.getElementById('contact-form');
+      const feedbackBox = document.getElementById('form-feedback');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+
+          const name = document.getElementById('input-name').value.trim();
+          const email = document.getElementById('input-email').value.trim();
+          const interest = document.getElementById('input-interest').value;
+          const message = document.getElementById('input-message').value.trim();
+
+          const subject = encodeURIComponent(`[Portfólio] ${interest} — ${name}`);
+          const body = encodeURIComponent(
+            `Nome: ${name}\nEmail: ${email}\nÁrea de Interesse: ${interest}\n\nMensagem:\n${message}`
           );
 
-          revealElements.forEach((el) => revealObserver.observe(el));
-        } else {
-          revealElements.forEach((el) => el.classList.add('is-visible'));
-        }
+          if (feedbackBox) {
+            feedbackBox.classList.remove('hidden');
+          }
 
-        // 3. Active Top Floating Pill Icon Highlight on Scroll
-        const trackedIds = ['home', 'projects', 'experience', 'tools', 'contact'];
-        const navLinks = document.querySelectorAll('[data-nav-target]');
+          window.location.href = `mailto:washiwm1@gmail.com?subject=${subject}&body=${body}`;
+        });
+      }
+    });
+  </script>
+</body>
 
-        function updateActiveNav() {
-          const scrollMarker = window.scrollY + window.innerHeight * 0.35;
-          let activeId = 'home';
-
-          trackedIds.forEach((id) => {
-            const section = document.getElementById(id);
-            if (section && scrollMarker >= section.offsetTop) {
-              activeId = id;
-            }
-          });
-
-          navLinks.forEach((link) => {
-            const isTarget = link.getAttribute('data-nav-target') === activeId;
-            link.classList.toggle('active', isTarget);
-          });
-        }
-
-        window.addEventListener('scroll', updateActiveNav, { passive: true });
-        updateActiveNav();
-
-        // 4. Functional Static Contact Form Handler (GitHub Pages Compatible)
-        const contactForm = document.getElementById('contact-form');
-        const feedbackBox = document.getElementById('form-feedback');
-
-        if (contactForm) {
-          contactForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-
-            const name = document.getElementById('input-name').value.trim();
-            const email = document.getElementById('input-email').value.trim();
-            const interest = document.getElementById('input-interest').value;
-            const message = document.getElementById('input-message').value.trim();
-
-            const subject = encodeURIComponent(`[Portfólio] ${interest} — ${name}`);
-            const body = encodeURIComponent(
-              `Nome: ${name}\nEmail: ${email}\nÁrea de Interesse: ${interest}\n\nMensagem:\n${message}`
-            );
-
-            if (feedbackBox) {
-              feedbackBox.classList.remove('hidden');
-            }
-
-            window.location.href = `mailto:washiwm1@gmail.com?subject=${subject}&body=${body}`;
-          });
-        }
-      });
-    </script>
-  </body>
 </html>
